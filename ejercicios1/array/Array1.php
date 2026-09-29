@@ -26,19 +26,12 @@
         if ($i % 5 == 0) echo "</br>";
     }
 
-
-
-
-
-
-
-
-
     ?>
     <h2>Este es el contenido del array sin repeticiones:</h2>
 
     <?php
     $array = [];
+    $result = [];
 
     for ($i = 0; $i < 50; $i++) {
         do {
@@ -46,8 +39,14 @@
         } while (in_array($numero, $array));
 
         $array[$i] = $numero;
-        echo " " . $array[$i];
+        $result[] = $array[$i];
     }
+    sort($result);
+    echo implode(" ", $result) . '</br> </br>';
+
+    echo '<b>El numero mayor es:</b> ' . $result[count($result) - 1] . '</br>';
+    echo '<b>El numero mayor es:</b> ' . $result[0] . '</br>';
+    echo '<b>La media es: </b> ' . array_sum($array) / 50 . '</br>';
     ?>
 
 </body>
