@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login - Bootstrap</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+                background-color: #0b0f19;
+            }
+            .form-container {
+                width: 320px;
+                background-color: rgb(17, 24, 39);
+                color: rgb(243, 244, 246);
+            }
+            .form-control-dark {
+                background-color: rgb(17, 24, 39) !important;
+                border-color: rgb(55, 65, 81) !important;
+                color: rgb(243, 244, 246) !important;
+            }
+            .form-control-dark:focus {
+                border-color: rgb(167, 139, 250) !important;
+                box-shadow: 0 0 0 0.25rem rgba(167, 139, 250, 0.25) !important;
+            }
+            .btn-custom-sign {
+                background-color: rgb(167, 139, 250);
+                color: rgb(17, 24, 39);
+                font-weight: 600;
+            }
+            .btn-custom-sign:hover {
+                background-color: rgb(152, 122, 245);
+                color: rgb(17, 24, 39);
+            }
+            ∫ .text-muted-custom {
+                color: rgb(156, 163, 175) !important;
+            }
+            .link-custom {
+                color: rgb(243, 244, 246);
+                font-size: 14px;
+                text-decoration: none;
+            }
+            .link-custom:hover {
+                color: rgb(243, 244, 246);
+                text-decoration: underline;
+                text-decoration-color: rgb(167, 139, 250);
+            }
+        </style>
+    </head>
+    <body class="d-flex justify-content-center align-items-center vh-100">
+        <div class="form-container rounded-4 p-4 shadow">
+            <p class="text-center fs-3 fw-bold mb-3">Login</p>
+
+            <form action="" method="get" class="row g-3">
+                <div class="col-12">
+                    <label
+                        for="nombre"
+                        class="form-label text-muted-custom small mb-1"
+                        >Nombre y apellidos</label
+                    >
+                    <input
+                        type="text"
+                        name="nombre"
+                        id="nombre"
+                        class="form-control form-control-dark py-2 px-3"
+                        required
+                    />
+                </div>
+
+                <div class="col-12">
+                    <label
+                        for="email"
+                        class="form-label text-muted-custom small mb-1"
+                        >Email</label
+                    >
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-control form-control-dark py-2 px-3"
+                        required
+                    />
+                </div>
+
+                <div class="col-12">
+                    <label
+                        for="urlPersonal"
+                        class="form-label text-muted-custom small mb-1"
+                        >URL página personal</label
+                    >
+                    <input
+                        type="url"
+                        name="urlPersonal"
+                        id="urlPersonal"
+                        class="form-control form-control-dark py-2 px-3"
+                        placeholder="https://mi-pagina.com"
+                        required
+                    />
+                </div>
+
+                <fieldset class="col-12">
+                    <legend class="form-label text-muted-custom small mb-2">
+                        Sexo
+                    </legend>
+                    <div class="d-flex gap-4">
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="sexo"
+                                id="sexo-hombre"
+                                value="hombre"
+                                required
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="sexo-hombre"
+                                >Hombre</label
+                            >
+                        </div>
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="sexo"
+                                id="sexo-mujer"
+                                value="mujer"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="sexo-mujer"
+                                >Mujer</label
+                            >
+                        </div>
+                        <div class="form-check">
+                            <input
+                                class="form-check-input"
+                                type="radio"
+                                name="sexo"
+                                id="sexo-otro"
+                                value="otro"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="sexo-otro"
+                                >Otro</label
+                            >
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="col-12">
+                    <label
+                        for="convivientes"
+                        class="form-label text-muted-custom small mb-1"
+                        >Número de convivientes en el domicilio</label
+                    >
+                    <input
+                        type="number"
+                        name="convivientes"
+                        id="convivientes"
+                        class="form-control form-control-dark py-2 px-3"
+                        min="0"
+                        max="20"
+                        value="0"
+                        required
+                    />
+                </div>
+
+                <fieldset class="col-12">
+                    <legend class="form-label text-muted-custom small mb-2">
+                        Aficiones
+                    </legend>
+                    <div class="row g-2">
+                        <div class="col-6 form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="aficion-lectura"
+                                name="aficiones[]"
+                                value="lectura"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="aficion-lectura"
+                                >Lectura</label
+                            >
+                        </div>
+                        <div class="col-6 form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="aficion-deporte"
+                                name="aficiones[]"
+                                value="deporte"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="aficion-deporte"
+                                >Deporte</label
+                            >
+                        </div>
+                        <div class="col-6 form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="aficion-musica"
+                                name="aficiones[]"
+                                value="musica"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="aficion-musica"
+                                >Música</label
+                            >
+                        </div>
+                        <div class="col-6 form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="aficion-cine"
+                                name="aficiones[]"
+                                value="cine"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="aficion-cine"
+                                >Cine</label
+                            >
+                        </div>
+                        <div class="col-6 form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="aficion-viajes"
+                                name="aficiones[]"
+                                value="viajes"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="aficion-viajes"
+                                >Viajes</label
+                            >
+                        </div>
+                        <div class="col-6 form-check">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="aficion-programacion"
+                                name="aficiones[]"
+                                value="programacion"
+                            />
+                            <label
+                                class="form-check-label text-muted-custom"
+                                for="aficion-programacion"
+                                >Programación</label
+                            >
+                        </div>
+                    </div>
+                    <div class="form-text text-muted-custom">
+                        Selecciona al menos 4 opciones.
+                    </div>
+                </fieldset>
+
+                <div class="col-12">
+                    <label
+                        for="menuFavorito"
+                        class="form-label text-muted-custom small mb-1"
+                        >Menú favorito</label
+                    >
+                    <select
+                        class="form-select form-control-dark py-2 px-3"
+                        name="menuFavorito[]"
+                        id="menuFavorito"
+                        multiple
+                        size="6"
+                        required
+                    >
+                        <option value="paella">Paella</option>
+                        <option value="tacos">Tacos</option>
+                        <option value="sushi">Sushi</option>
+                        <option value="ensalada">Ensalada</option>
+                        <option value="pasta">Pasta</option>
+                        <option value="cocido">Cocido</option>
+                    </select>
+                    <div class="form-text text-muted-custom">
+                        Selecciona al menos 4 opciones.
+                    </div>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <button
+                        type="submit"
+                        class="btn btn-custom-sign w-100 py-2"
+                    >
+                        Enviar
+                    </button>
+                </div>
+            </form>
+
+            <div id="resumen-container" class="mt-4 d-none">
+                <h5 class="text-center mb-3 text-white">Resumen</h5>
+                <div class="table-responsive">
+                    <table
+                        class="table table-sm table-bordered align-middle text-white"
+                    >
+                        <tbody id="resumen-tabla"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap 5 JS Bundle CDN (opcional) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const form = document.querySelector("form");
+                const resumenContainer =
+                    document.getElementById("resumen-container");
+                const resumenTabla = document.getElementById("resumen-tabla");
+
+                form.addEventListener("submit", (event) => {
+                    const aficiones = document.querySelectorAll(
+                        'input[name="aficiones[]"]:checked',
+                    );
+                    const menuFavorito = document.querySelectorAll(
+                        "#menuFavorito option:checked",
+                    );
+
+                    if (aficiones.length < 4) {
+                        event.preventDefault();
+                        alert("Debes seleccionar al menos 4 aficiones.");
+                        return;
+                    }
+
+                    if (menuFavorito.length < 4) {
+                        event.preventDefault();
+                        alert(
+                            "Debes seleccionar al menos 4 opciones del menú favorito.",
+                        );
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    const nombre =
+                        document.getElementById("nombre").value.trim() ||
+                        "No indicado";
+                    const email =
+                        document.getElementById("email").value.trim() ||
+                        "No indicado";
+                    const urlPersonal =
+                        document.getElementById("urlPersonal").value.trim() ||
+                        "No indicada";
+                    const sexo =
+                        document.querySelector('input[name="sexo"]:checked')
+                            ?.value || "No indicado";
+                    const convivientes =
+                        document.getElementById("convivientes").value || "0";
+                    const aficionesSeleccionadas = Array.from(aficiones).map(
+                        (item) => item.value,
+                    );
+                    const menuSeleccionado = Array.from(menuFavorito).map(
+                        (item) => item.textContent.trim(),
+                    );
+
+                    const datos = [
+                        ["Nombre y apellidos", nombre],
+                        ["Email", email],
+                        ["URL página personal", urlPersonal],
+                        ["Sexo", sexo],
+                        ["Número de convivientes", convivientes],
+                        [
+                            "Aficiones",
+                            aficionesSeleccionadas.join(", ") || "Ninguna",
+                        ],
+                        [
+                            "Menú favorito",
+                            menuSeleccionado.join(", ") || "Ninguno",
+                        ],
+                    ];
+
+                    resumenTabla.innerHTML = datos
+                        .map(
+                            ([label, value]) => `
+                                <tr>
+                                    <th scope="row" class="text-white-50" style="width: 45%;">${label}</th>
+                                    <td class="text-white">${value}</td>
+                                </tr>
+                            `,
+                        )
+                        .join("");
+
+                    resumenContainer.classList.remove("d-none");
+                });
+            });
+        </script>
+    </body>
+</html>
