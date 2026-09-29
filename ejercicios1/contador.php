@@ -14,6 +14,7 @@
         echo ",";
     }
     echo "</br>";
+    echo "</br>";
 
     $a = 0;
     while ($a <= 100) {

@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    <h1>Al final debe quedarte algo como esto:</h1>
 
     <p>Este contador va del 1 al 100:</p>
     <?php

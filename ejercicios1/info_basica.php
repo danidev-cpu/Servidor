@@ -12,7 +12,7 @@
     $name = "Daniel";
     $year = 2005;
     ?>
-    <p>Me llamo <?php $name ?> y nací el año <?php $year ?></p>
+    <p>Me llamo <?php echo $name ?> y nací el año <?php echo $year ?></p>
 </body>
 
 </html>
