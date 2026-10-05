@@ -12,13 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_string($login) && is_string($password)) {
         $login = trim($login);
-        $usuarios = file(__DIR__ . '/usuarios.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $usuarios = fopen('usuarios.txt', 'r');
+
 
         if ($usuarios !== false) {
-            foreach ($usuarios as $usuario) {
-                $credenciales = explode(':', $usuario, 2);
+            while (!feof($usuarios)) {
 
-                if (count($credenciales) === 2 && $credenciales[0] === $login && $credenciales[1] === $password) {
+                $credenciales = explode(':', fgets($usuarios)); //Devuelve un array
+
+                if ($credenciales[0] === $login && $credenciales[1] === $password) {
                     $usuarioValido = true;
                     break;
                 }
@@ -40,7 +42,7 @@ cargar_plantilla('Iniciar Sesión', function () use ($login, $error) {
     <form action="" method="POST">
       <div class="mb-3">
         <label for="login" class="form-label">Login</label>
-        <input type="text" class="form-control" id="login" name="login" value="' . htmlspecialchars($login, ENT_QUOTES, 'UTF-8') . '" required>
+        <input type="text" class="form-control" id="login" name="login" value="' . htmlspecialchars($login) . '" required>
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Contraseña</label>
