@@ -9,10 +9,10 @@
 
 <body>
     <form method="post" id="formulario">
-        <input type="text" id="nombreAlumno" name="nombreAlumno">
-        <input type="number" id="nota1" name="nota1" placeholder="nota1">
-        <input type="number" id="nota2" name="nota2" placeholder="nota2">
-        <input type="number" id="nota3" name="nota3" placeholder="nota3">
+        <input type="text" id="nombreAlumno" name="nombreAlumno" required>
+        <input type="number" id="nota1" name="nota1" placeholder="Nota 1" required>
+        <input type="number" id="nota2" name="nota2" placeholder="Nota 2" required>
+        <input type="number" id="nota3" name="nota3" placeholder="Nota 3" required>
         <button type="submit">Añadir</button>
     </form>
 
