@@ -1,11 +1,11 @@
 <?php
 class Persona
 {
-    protected $DNI;
+    public $DNI;
 
-    protected $nombre;
+    public $nombre;
 
-    protected $email;
+    public $email;
 
     public function __construct($DNI, $nombre, $email)
     {
@@ -13,6 +13,17 @@ class Persona
         $this->nombre = $nombre;
         $this->email = $email;
     }
+
+    public function mostrar()
+    {
+        echo "</br>";
+        $texto = 'DNI: ' . $this->DNI . '</br>';
+        $texto .= 'Nombre: ' . $this->nombre . '</br>';
+        $texto .= 'Gmail: ' . $this->email . '</br>';
+
+        return $texto;
+    }
+
 
     public function __set($name, $value)
     {
@@ -28,10 +39,12 @@ class Persona
         }
     }
 
-    public function __toString()
+    /*  public function __toString()
     {
         $texto = 'DNI: ' . $this->DNI . '</br>';
-        $texto .= 'Nombre: ' . $this->name . '</br>';
+        $texto .= 'Nombre: ' . $this->nombre . '</br>';
         $texto .= 'Gmail: ' . $this->email . '</br>';
-    }
+
+        return $texto;
+    } */
 }
