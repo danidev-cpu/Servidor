@@ -118,4 +118,4 @@ Rellena un array bidimensional de 6 filas por 9 columnas con números aleatorios
 - La fila del mínimo debe aparecer en **verde**.
 - El resto de números deben aparecer en **negro**.
 
-## ![alt text](images/Tema1/arrays/Garaje.png)
+## ![alt text](images/Tema1/arrays/arrayBidimensional.png)
