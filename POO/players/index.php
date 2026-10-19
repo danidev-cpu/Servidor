@@ -1,5 +1,6 @@
 <?php
 require_once "player.php";
+require_once "team.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,18 +14,14 @@ require_once "player.php";
 
 <body>
     <?php
-    $p1 = new Player("Daniel", "16/11/2005", "Valencia", 10, 23, 15, 205, 0, 0);
-    /* $team = new Team("Ateletico de madrid", ) */
-    echo $p1->Age() . "</br>";
-    echo $p1->goals . "</br>";
-    echo $p1->Score();
-    $p1->addCard(1);
+    $team = new Team("Atletico de madrid");
 
+    $totalMatches = 0;
     ?>
 
     <ul>
-        <li>Team: Atletico </li>
-        <li>Matches: </li>
+        <li>Team: <?php $team->name ?></li>
+        <li>Matches: <?php ?> </li>
         <li>Won: </li>
         <li>Lost: </li>
         <li>Tie: </li>
@@ -49,20 +46,48 @@ require_once "player.php";
                 <th>Red Cards</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td><?php echo $p1->Age() ?></td>
-                <td><?php echo $p1->birthday ?></td>
-                <td><?php echo $p1->country ?></td>
-                <td><?php echo $p1->dorsal ?></td>
-                <td><?php echo $p1->goals ?></td>
-                <td><?php echo $p1->matches ?></td>
-                <td><?php echo $p1->minutes ?></td>
-                <td></td>
-                <td><?php echo $p1->yellowCard ?></td>
-                <td><?php echo $p1->redCard ?></td>
-            </tr>
-        </tbody>
+        <?php
+        if (!$archivo = fopen("plantillas.csv", "r")) {
+            echo "No se ha podido abrir el archivo";
+        } else {
+            fgetcsv($archivo, 0, ",", "\"", "\\"); // cabecera
+            while (($datosCeldas = fgetcsv($archivo, 0, ",", "\"", "\\")) !== false) {
+                if (count($datosCeldas) < 20) {
+                    continue;
+                }
+                $nuevoJugador = new Player(
+                    $datosCeldas[4],
+                    $datosCeldas[6],
+                    $datosCeldas[9],
+                    $datosCeldas[11],
+                    $datosCeldas[17],
+                    $datosCeldas[12],
+                    $datosCeldas[16],
+                    $datosCeldas[18],
+                    $datosCeldas[19]
+                );
+                $team->SignPlayer($nuevoJugador);
+
+        ?>
+                <tbody>
+                    <tr>
+                        <td><?php echo $nuevoJugador->name; ?></td>
+                        <td><?php echo $nuevoJugador->birthday; ?></td>
+                        <td><?php echo $nuevoJugador->country; ?></td>
+                        <td><?php echo $nuevoJugador->dorsal; ?></td>
+                        <td><?php echo $nuevoJugador->position; ?></td>
+                        <td><?php echo $nuevoJugador->goals; ?></td>
+                        <td><?php echo $nuevoJugador->matches; ?></td>
+                        <td><?php echo $nuevoJugador->minutes; ?></td>
+                        <td><?php echo $nuevoJugador->yellowCard; ?></td>
+                        <td><?php echo $nuevoJugador->redCard; ?></td>
+                    </tr>
+                </tbody>
+        <?php
+            }
+        }
+        fclose($archivo);
+        ?>
     </table>
 </body>
 

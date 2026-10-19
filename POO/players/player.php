@@ -11,17 +11,17 @@ class Player
     protected $yellowCard;
     protected $redCard;
 
-    public function __construct($name, $birthday, $country, int $dorsal, int $goals, int $matches, int $minutes, int $yellowCard, int $redCard)
+    public function __construct($name, $birthday, $country,  $dorsal,  $goals,  $matches,  $minutes,  $yellowCard,  $redCard)
     {
         $this->name = $name;
         $this->birthday = $birthday;
         $this->country = $country;
-        $this->dorsal = $dorsal;
-        $this->goals = $goals;
-        $this->matches = $matches;
-        $this->minutes = $minutes;
-        $this->yellowCard = $yellowCard;
-        $this->redCard = $redCard;
+        $this->dorsal = (int) $dorsal;
+        $this->goals = (int) $goals;
+        $this->matches = (int) $matches;
+        $this->minutes = (int) $minutes;
+        $this->yellowCard = (int) $yellowCard;
+        $this->redCard = (int) $redCard;
     }
     public function Age()
     {
@@ -45,7 +45,7 @@ class Player
         }
     }
 
-    public function PlayMinutes() {}
+    public function PlayMinutes(int $min) {}
 
 
 
@@ -61,4 +61,5 @@ class Player
             return $this->$name = $value;
         }
     }
+    public function render() {}
 }
