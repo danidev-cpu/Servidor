@@ -20,11 +20,10 @@ function quitarPorDetras(int $num, int $cant)
 }
 /* echo quitarPorDetras(31233, 2); */
 
-function quitarPorDelante(int $num, int $cant)
+function quitaPorDelante(int $num, int $cant): int
 {
-    /* $resultado = substr("$num", 0, strlen($num) - $cant);
-    return $resultado; */
-    $aux = pow(-10, $cant);
-    return floor($num / $aux);
+    $resultado = (int) substr($num, $cant);
+    return  $resultado;
 }
-echo quitarPorDelante(12345, 4);
+
+echo quitaPorDelante(1432, 3);
